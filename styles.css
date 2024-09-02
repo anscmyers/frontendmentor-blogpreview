@@ -1,8 +1,42 @@
+/* Variables */
+
+:root {
+    --bg-color: hsl(47, 88%, 63%);
+    --whitespace-color: hsl(0, 0%, 100%);
+    --gray500-color: hsl(0, 0%, 42%);
+    --gray950-color: hsl(0, 0%, 7%);
+    --title-font: 'Figtree', 800;
+    --body-font: 'Figtree', 500;
+    --space-200: 1rem; /* body is 16 px by default*/
+    --space-150: .75rem;
+    --space-100: .5rem;
+    --space-50: .25rem;
+    /* font shorthand: font-style font-variant font-weight font-size(req)
+                        line-height font-family(req) */
+    /* Need to put letter-spacing separately, same throughout */
+    --title-font: 800 1.5rem 1.5 'Figtree';
+    --body-font: 500 1rem 1.5 'Figtree';
+    --date-font: 500 7/8rem 1.5 'Figtree'; 
+    --author-font: 800 7/8rem 1.5 'Figtree';
+    --letter-spacing: 0px;
+}
+
+
+/* Styling */
 .attribution { 
     font-size: 11px; 
     text-align: center; 
+    
 }
 
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
