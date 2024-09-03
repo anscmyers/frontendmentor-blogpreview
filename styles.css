@@ -1,3 +1,51 @@
+/* 
+Plan is to create variables for
+    Colors
+    Fonts
+    Content/Container Spacing
+    Letter Spacing
+
+Styling Plan:
+    Body Container
+        to center
+
+    *Card Container
+        to contain overall card
+        +drop shadow
+        +border radius
+
+    **Content Container
+        to contain content in the card
+
+
+    ***Image Container
+        to contain image
+
+    ****Image
+
+    ***Text Container
+        to contain text
+
+    **** Header Text
+
+    **** Category Text
+
+    **** Publication Date Text
+
+    **** Body Text
+
+    **** Author Container
+        to contain author content
+        
+    ***** Author Image
+
+    ***** Author Text
+    
+*/
+
+
+
+
 /* Variables */
 
 :root {
@@ -5,8 +53,6 @@
     --whitespace-color: hsl(0, 0%, 100%);
     --gray500-color: hsl(0, 0%, 42%);
     --gray950-color: hsl(0, 0%, 7%);
-    --title-font: 'Figtree', 800;
-    --body-font: 'Figtree', 500;
     --space-200: 1rem; /* body is 16 px by default*/
     --space-150: .75rem;
     --space-100: .5rem;
@@ -39,13 +85,61 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--bg-color);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.content {
+.card {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: fit-content;
     min-width: 320px;
-    max-width: 375px; /* Is this what I want? */
+    width: min-content;
+    background-color: var(--whitespace-color);
+    padding: var(--space-200);
+    border-radius: 20px;
+    border: 1px solid black;
+    /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [spread radius] [color];
+ */
+    box-shadow: 8px 8px;
+}
+
+.content {
+    flex: 1 1 auto;
+    text-align: left;
+    
+}
+
+@media (max-width: 375px) {
+    .card {
+        height: 80vh;
+        width: 80vw;
+    }
+}
+
+.img-container {
+    
+}
+
+
+.txt-container h1 {
+    font: var(--title-font);
+}
+
+.txt-container .author h2 {
+    font: var(--)
+}
+
+.txt-container h4 {
+
+
+}
+
+.tx-container p {
+
 }
