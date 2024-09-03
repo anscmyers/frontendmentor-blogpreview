@@ -6,25 +6,61 @@ Plan is to create variables for
     Letter Spacing
 
 Styling Plan:
-    Body Container
+    Main Container
         to center
 
     *Card Container
         to contain overall card
+
+        padding, not margin: spacing/200
+
         +drop shadow
         +border radius
+        +border
+
+        font styling
+            Text will be inherited automatically
 
     **Content Container
         to contain content in the card
 
+        +flex box
+            column
+            center on cross-axis
+            center on main-axis
+                I want to keep a consistent margin top & bottom
+
+
+        no margin - padding on parent takes care of that
+        
+        set width here once
+
+        small screen media query shrink
+            need to apply to height & width proportionally
+
+        Spacing between items: spacing/200
 
     ***Image Container
         to contain image
+        +flexbox
+            center on cross-axis
+            center on main-axis
+
+        set height here
+            parent media query should override
+        +border radius
+        +overflow hidden
 
     ****Image
+        height 100%
+        width 100%
 
     ***Text Container
         to contain text
+        
+        
+
+        
 
     **** Header Text
 
@@ -36,7 +72,7 @@ Styling Plan:
 
     **** Author Container
         to contain author content
-        
+
     ***** Author Image
 
     ***** Author Text
@@ -57,13 +93,13 @@ Styling Plan:
     --space-150: .75rem;
     --space-100: .5rem;
     --space-50: .25rem;
-    /* font shorthand: font-style font-variant font-weight font-size(req)
-                        line-height font-family(req) */
+    /* font shorthand: font-style font-variant font-weight font-size(req)/line-height font-family(req) */
     /* Need to put letter-spacing separately, same throughout */
-    --title-font: 800 1.5rem 1.5 'Figtree';
-    --body-font: 500 1rem 1.5 'Figtree';
-    --date-font: 500 7/8rem 1.5 'Figtree'; 
-    --author-font: 800 7/8rem 1.5 'Figtree';
+    --title-font: 800 1.5rem/1.5 'Figtree', sans-serif;
+    --body-font: 500 1rem/1.5 'Figtree', sans-serif;
+    --date-font: 500 7/8rem/1.5 'Figtree', sans-serif; 
+    --label-font: 800 7/8rem/1.5 'Figtree', sans-serif;
+    --author-font: 800 7/8rem/1.5 'Figtree', sans-serif;
     --letter-spacing: 0px;
 }
 
@@ -92,14 +128,14 @@ main {
 }
 
 .card {
-    flex: 1 1 auto;
-    display: flex;
+    /* flex: 1 1 auto; */
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: fit-content;
-    min-width: 320px;
-    width: min-content;
+    justify-content: center; */
+    /* height: fit-content; */
+    /* min-width: 320px; */
+    /* width: min-content; */
     background-color: var(--whitespace-color);
     padding: var(--space-200);
     border-radius: 20px;
@@ -107,39 +143,55 @@ main {
     /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [spread radius] [color];
  */
     box-shadow: 8px 8px;
+    width: 336px;
 }
 
+
+
 .content {
-    flex: 1 1 auto;
-    text-align: left;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: var(--space-200);
 }
 
 @media (max-width: 375px) {
-    .card {
+    .content {
         height: 80vh;
         width: 80vw;
     }
 }
 
 .img-container {
-    
+    border-radius: 10px;
+    overflow: hidden;
+    height: auto;
+    position: relative;
 }
 
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.txt-container {
+
+}
 
 .txt-container h1 {
     font: var(--title-font);
 }
 
-.txt-container .author h2 {
-    font: var(--)
+.txt-container h2 {
+    font: var(--label-font);
 }
 
 .txt-container h4 {
-
-
+    font: var(--date-font);
 }
 
-.tx-container p {
-
+.txt-container p {
+    font: var(--body-font);
 }
