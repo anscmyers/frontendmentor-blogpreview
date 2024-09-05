@@ -95,12 +95,19 @@ Styling Plan:
     --space-50: .25rem;
     /* font shorthand: font-style font-variant font-weight font-size(req)/line-height font-family(req) */
     /* Need to put letter-spacing separately, same throughout */
-    --title-font: 800 1.5rem/1.5 'Figtree', sans-serif;
-    --body-font: 500 1rem/1.5 'Figtree', sans-serif;
-    --date-font: 500 7/8rem/1.5 'Figtree', sans-serif; 
-    --label-font: 800 7/8rem/1.5 'Figtree', sans-serif;
-    --author-font: 800 7/8rem/1.5 'Figtree', sans-serif;
+    /* Can't mix rem & px in the shorthand */
+    --title-font: 800 24px/36px 'Figtree', sans-serif;
+    --body-font: 500 16px/24px 'Figtree', sans-serif;
+    --date-font: 500 14px/21px 'Figtree', sans-serif; 
+    --label-font: 800 14px/21px 'Figtree', sans-serif;
+    --author-font: 800 14px/21px 'Figtree', sans-serif;
     --letter-spacing: 0px;
+
+    --mobile-title-font: 800 20px/30px 'Figtree', sans-serif;
+    --mobile-body-font: 500 14px/21px 'Figtree', sans-serif;
+    --mobile-date-font: 500 12px/21px 'Figtree', sans-serif; 
+    --mobile-label-font: 800 12px/21px 'Figtree', sans-serif;
+    --mobile-author-font: 800 14px/21px 'Figtree', sans-serif;
 }
 
 
@@ -116,7 +123,7 @@ Styling Plan:
 }
 
 
-main {
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,14 +135,6 @@ main {
 }
 
 .card {
-    /* flex: 1 1 auto; */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-    /* height: fit-content; */
-    /* min-width: 320px; */
-    /* width: min-content; */
     background-color: var(--whitespace-color);
     padding: var(--space-200);
     border-radius: 20px;
@@ -143,7 +142,11 @@ main {
     /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [spread radius] [color];
  */
     box-shadow: 8px 8px;
-    width: 336px;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    width: auto;
+    height: auto;
 }
 
 
@@ -153,31 +156,56 @@ main {
     flex-direction: column;
     align-items: center;
     justify-items: center;
+    width: 336px;
     gap: var(--space-200);
 }
 
 @media (max-width: 375px) {
     .content {
-        height: 80vh;
-        width: 80vw;
+        width: 268.8px; /* 80% of the original 336px */
+    }
+    
+    /* .img-container {  
+    height: 160px; } */ /*80% of the original 200px */
+
+    .txt-container h1 {
+        font: var(--mobile-title-font);
+    }
+    
+    .txt-container h2 {
+        font: var(--mobile-label-font);
+        background-color: var(--bg-color);
+        width: fit-content;
+        padding: 3px;
+        border-radius: 3px;
+    }
+    
+    .txt-container h4 {
+        font: var(--mobile-date-font);
+    }
+    
+    .txt-container p {
+        font: var(--mobile-body-font);
     }
 }
+
 
 .img-container {
     border-radius: 10px;
     overflow: hidden;
-    height: auto;
-    position: relative;
+    height: 200px;
+
+    /* flex-basis: ; */
 }
 
 .img-container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .txt-container {
-
+    padding: 0px;
 }
 
 .txt-container h1 {
@@ -186,6 +214,10 @@ main {
 
 .txt-container h2 {
     font: var(--label-font);
+    background-color: var(--bg-color);
+    width: fit-content;
+    padding: 3px;
+    border-radius: 3px;
 }
 
 .txt-container h4 {
@@ -194,4 +226,18 @@ main {
 
 .txt-container p {
     font: var(--body-font);
+}
+
+.author {
+    display: flex;
+    font: var(--author-font);
+    align-items: center;
+}
+
+.author img {
+    height: 100%;
+}
+
+.author h2 {
+    margin: 0px;
 }
